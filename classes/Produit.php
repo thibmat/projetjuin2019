@@ -83,6 +83,8 @@ class Produit {
     {
         if ($price>0) {
             $this->price = $price;
+        }else{
+            $this->price = 0;
         }
     }
 
@@ -155,7 +157,7 @@ class Produit {
      */
     public function getImageName()
     {
-        return $this->imageName;
+        return $this->imageName ?? $this->image_name ?? '';
     }
 
     /**

@@ -1,22 +1,28 @@
 <?php
 require 'autoload.php';
-//On crée un nouveau produit
-$hamac = new Produit();
+$pdo = new PDO('mysql:host=localhost;dbname=catalogue', 'root',null,[PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8mb4"]);
+$query = 'SELECT * FROM produit WHERE etat_publication = 1';
+//Execution de la requete
+$result = $pdo->query($query);
+$products = $result->fetchAll(PDO::FETCH_CLASS,'Produit');
 
-$hamac->setName ("hamac");
-$hamac->setDescription ("Pour se reposer après 5 jours de PHP");
-$hamac->setImageName ("hamac.jpg");
-$hamac->setPrice(-100);
+//On crée un nouveau produit
+//$hamac = new Produit();
+
+//$hamac->setName ("hamac");
+//$hamac->setDescription ("Pour se reposer après 5 jours de PHP");
+//$hamac->setImageName ("hamac.jpg");
+//$hamac->setPrice(100);
 
 //On crée un 2eme objet
-$parasol = new Produit();
-$parasol->setName ("Parasol");
-$parasol->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
-$parasol->setImageName("parasol.jpg");
-$parasol->setPrice(50);
+//$parasol = new Produit();
+//$parasol->setName ("Parasol");
+//$parasol->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+//$parasol->setImageName("parasol.jpg");
+//$parasol->setPrice(50);
 
 //on crée un tableau pour stocker des objets.
-$products = [$hamac,$parasol];
+//$products = [$hamac,$parasol];
 
 require 'inc/header.php';
 
