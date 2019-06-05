@@ -1,9 +1,18 @@
 <?php
-require '../inc/header.php';
-require 'register_check.php';
+require dirname(__DIR__) . '/src/Controller/registerController.php';
+require 'inc/header.php';
 ?>
 
     <main class="container">
+
+        <?php if(isset($success) && $success === 1) : ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Utilisateur inscrit : Bonjour <?= (isset($user)) ? $user->getUsername() : '' ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <?php endif; ?>
         <h1>Inscription</h1>
         <form method="post">
             <div class="form-group">
@@ -30,5 +39,5 @@ require 'register_check.php';
 
 
 <?php
-require '../inc/footer.php';
+require 'inc/footer.php';
 ?>

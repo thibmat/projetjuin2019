@@ -79,11 +79,19 @@ class User
     /**
      * @param string $password
      */
-    public function setPassword($password)
+    public function setPassword($password):void
     {
-        $this->password = $password;
+        $this->password = password_hash($password,PASSWORD_DEFAULT);
     }
 
+    /**récupère le nom d'utilisateur, l'amil et le mot de passe. Prepare la requete SQL pour le "Insert into"
+     * @return string
+     */
 
+    public function getStrParamsSQL():string
+    {
+        $tab = [$this->username, $this->email, $this->password];
+        return "'".htmlentities(implode("','",$tab))."'";
 
+    }
 }
