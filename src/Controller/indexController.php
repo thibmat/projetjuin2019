@@ -2,7 +2,7 @@
 require dirname(__DIR__,2) . '/autoload.php';
 //Connexion à la BDD
 $database = new Database();
-$database->connect();
+//$database->connect();
 //Requete SQL
 $query = 'SELECT * FROM produit WHERE etat_publication = 1';
 $products = $database->query($query,'Produit');

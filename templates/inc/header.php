@@ -44,12 +44,12 @@ if (isset($_GET['exit'])){
         </ul>
         <p class="my-2 my-md-0">
             <?php
-            if (isset($_SESSION['user'])) {
-                echo $_SESSION['user'];
+            if (isset($_SESSION['username'])) {
+                echo $_SESSION['username'];
                 echo "<br><a href='?exit=yes'>Se déconnecter</a>";
             }else{
-                echo ">Se connecter </a><br>";
-                echo ">Créer un compte</a>";
+                echo "<a href=\"/templates/connexion.php\">Se connecter </a><br>";
+                echo "<a href=\"/templates/register.php\">Créer un compte</a>";
             }
             ?>
         </p>
