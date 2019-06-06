@@ -1,7 +1,7 @@
 <?php
+namespace src\Vehicles;
 
-
-class Boat extends vehicle
+class Boat extends AbstractVehicle
 {
     private $ports;
 
@@ -29,9 +29,14 @@ class Boat extends vehicle
         unset($this->ports[array_search($ports, $this->ports)]);
     }
 
-    public function go(int $km):void
+    public function move(int $km):void
     {
         $this->kilometers += $km;
         echo 'glouglouglou';
+    }
+    public function __construct(string $brand, string $motor, array $ports)
+    {
+        parent::__construct($brand, $motor, 0);
+        $this->ports = $ports;
     }
 }

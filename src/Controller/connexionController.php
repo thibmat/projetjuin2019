@@ -1,6 +1,5 @@
 <?php
 require dirname(__DIR__,2) . '/autoload.php';
-require dirname(__DIR__) . '/functions/FormValidator.php';
 // Vérification formulaire + inscription de l'utilisateur en BDD
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errorMessageEmail = checkPostText('email', 255);

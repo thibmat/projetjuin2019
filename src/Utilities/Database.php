@@ -1,6 +1,5 @@
 <?php
-
-
+namespace src\Utilities;
 /**
  * Cette classe utilise PDO afin d'effectuer des opérations sur la BDD
  */

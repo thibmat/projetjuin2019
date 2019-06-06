@@ -1,5 +1,5 @@
 <?php
-
+namespace src\Utilities;
 class FormValidator{
     /**
      * Verification de la clef dans la superglobale POST et renvoi

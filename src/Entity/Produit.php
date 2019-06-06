@@ -1,4 +1,6 @@
 <?php
+namespace src\Entity;
+
 class  Produit {
     private $id;
     private $name;
