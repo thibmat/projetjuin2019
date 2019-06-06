@@ -1,5 +1,6 @@
 <?php
-namespace src\Vehicles;
+namespace src\Vehicle;
+
 class Moto extends AbstractRollingVehicle
 {
     public function __construct(string $name, string $fuel, ?int $kms = 0, ?int $nbWheels = 2)

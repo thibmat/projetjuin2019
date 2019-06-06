@@ -13,6 +13,14 @@ require 'inc/header.php';
                 </button>
             </div>
         <?php endif; ?>
+        <?php if(isset($error)) : ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Erreur! <?= $error ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <?php endif; ?>
         <h1>Inscription</h1>
         <form method="post">
             <div class="form-group">

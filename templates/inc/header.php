@@ -15,12 +15,12 @@ if (isset($_GET['exit'])){
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PAGE PHP</title>
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/projetjuin2019/public/css/bootstrap.min.css">
 </head>
 <body style="background:lightgrey;">
 <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="../index.php">
-        <img src="../../public/img/header-logo-truffaut-2018-1.png" width="241px" height="34px" alt="">
+    <a class="navbar-brand" href="/projetjuin2019/templates/index.php">
+        <img src="/projetjuin2019/public/img/header-logo-truffaut-2018-1.png" width="241px" height="34px" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@ if (isset($_GET['exit'])){
     <div class="collapse navbar-collapse" id="navbarsExample04">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/templates/index.php">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/projetjuin2019/templates/index.php">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Les Communes</a>
@@ -48,8 +48,8 @@ if (isset($_GET['exit'])){
                 echo $_SESSION['username'];
                 echo "<br><a href='?exit=yes'>Se déconnecter</a>";
             }else{
-                echo "<a href=\"/templates/connexion.php\">Se connecter </a><br>";
-                echo "<a href=\"/templates/register.php\">Créer un compte</a>";
+                echo "<a href=\"/projetjuin2019/templates/connexion.php\">Se connecter </a><br>";
+                echo "<a href=\"/projetjuin2019/templates/register.php\">Créer un compte</a>";
             }
             ?>
         </p>

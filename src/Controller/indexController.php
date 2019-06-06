@@ -1,11 +1,15 @@
 <?php
+
+use src\Utilities\Database;
+use src\Entity\Produit;
+
 require dirname(__DIR__,2) . '/autoload.php';
 //Connexion à la BDD
 $database = new Database();
 //$database->connect();
 //Requete SQL
 $query = 'SELECT * FROM produit WHERE etat_publication = 1';
-$products = $database->query($query,'Produit');
+$products = $database->query($query,'\src\Entity\Produit');
 
 //On crée un nouveau produit
 //$hamac = new Produit();

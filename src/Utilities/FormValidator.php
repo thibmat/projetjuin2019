@@ -82,7 +82,20 @@ class FormValidator{
             $_POST[$key] = true;
         }
     }
-
+    public static function checkPostEmail(string $key, int $max):string
+    {
+        // On teste l'existence et la non-nullité
+        if (!array_key_exists($key, $_POST) || empty($_POST[$key])) {
+            $message = "Merci de saisir une valeur";
+            // On teste la valeur max
+        } elseif (strlen($_POST[$key]) > $max) {
+            $message = "La valeur saisie est trop longue (max $max caractères)";
+        } elseif (!preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^", $_POST[$key])){
+            $message = "L'email ne semble pas correct";
+        }
+        // On retourne l'éventuel message ou une chaîne de caractères vide
+            return $message ?? '';
+    }
 }
 
 

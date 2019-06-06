@@ -1,9 +1,14 @@
 <?php
+
+use src\Entity\User;
+use src\Utilities\Database;
+use src\Utilities\FormValidator;
+
 require dirname(__DIR__,2) . '/autoload.php';
 //Verification formulaire + inscription de l'utilisateur en bdd
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $errorMessageUsername = FormValidator::checkPostText('username', 128);
-    $errorMessageEmail = FormValidator::checkPostText('email', 255);
+    $errorMessageEmail = FormValidator::checkPostEmail('email', 255);
     $errorMessagePassword = FormValidator::checkPostText('password', 100);
 
     if (empty($errorMessageUsername) && empty($errorMessagePassword) && empty($errorMessageEmail)){
@@ -21,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         $query = "INSERT INTO app_user (username, email, password) VALUES (".$database->getStrParamsGlobalSQL($user->getUsername(),$user->getEmail(),$user->getPassword()).")";
         $success = $database->exec($query);
     }else{
-        var_dump("erreur");
+        $error = "Merci de vérifier les données saisies !";
     }
 }
 

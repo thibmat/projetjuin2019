@@ -1,23 +1,23 @@
 <?php
-namespace src\Vehicles;
+namespace src\Vehicle;
+
 trait Energizer {
 
-    private $energy;
-
+    private $energy = 100;
 
     /**
-     * Recharge l'energy à 100%
+     * Recharge l'énergie à 100
      */
-    public function fillMax():void
+    public function fillMax(): void
     {
         $this->energy = 100;
     }
 
     /**
-     * Consomme de l'energy au cours du vol
-     * @param $energy
+     * Consomme de l'énergie
+     * @param int $energy
      */
-    public function consumeEnergy(int $energy):void
+    public function consumeEnergy(int $energy): void
     {
         $this->energy -= $energy;
     }
@@ -37,6 +37,5 @@ trait Energizer {
     {
         $this->energy = $energy;
     }
-
 
 }

@@ -1,5 +1,7 @@
 <?php
 namespace src\Utilities;
+use PDO;
+
 /**
  * Cette classe utilise PDO afin d'effectuer des opérations sur la BDD
  */
@@ -25,7 +27,7 @@ class Database
         $this->pdo = new PDO(
             'mysql:host=localhost;dbname=catalogue',
             'root',
-            null,
+            'root',
             [
                 PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8mb4",
                 PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION

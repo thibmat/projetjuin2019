@@ -1,5 +1,6 @@
 <?php
-namespace src\Vehicles;
+namespace src\Vehicle;
+
 class Car extends AbstractRollingVehicle
 {
     use Energizer;
@@ -13,7 +14,7 @@ class Car extends AbstractRollingVehicle
     {
         parent::move($km);
         $this->consumeEnergy($km);
-        echo "<br>Il me reste {$this->getEnergy()} % d'energie";
+        echo "<p>Il me reste {$this->getEnergy()}% d'énergie</p>";
     }
 
     public function makeNoise(): string
