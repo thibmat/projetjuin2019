@@ -24,30 +24,35 @@ class Database
      */
     public function connect():void
     {
-        $this->pdo = new PDO(
-            'mysql:host=localhost;dbname=catalogue',
-            'root',
-            'root',
-            [
-                PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8mb4",
-                PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION
-            ]
-        );
+        try
+        {
+            $this->pdo = new PDO(
+                'mysql:host=localhost;dbname=catalogue',
+                'root',
+                'root',
+                [
+                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4",
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+                ]
+            );
+        }catch (PDOException $e)
+        {
+            die('Database connection could not be established.');
+        }
+
     }
+
 
     /**
      * @param string $sql
      * @param string $className
      * @return array|null
      */
-    public function query(string $sql, ?string $className='null'): ?array
+    public function query(string $sql, string $className): ?array
     {
         $result = $this->pdo->query($sql);
-        if (empty($className)){
-            return $result->fetchAll();
-        }else{
-            return $result->fetchAll(PDO::FETCH_CLASS,$className);
-        }
+        return $result->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,$className,array('username','email','password'));
+
     }
 
     public function queryUnique(string $sql, ?string $className='null'): ?array
