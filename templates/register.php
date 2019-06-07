@@ -1,5 +1,10 @@
 <?php
-require dirname(__DIR__) . '/src/Controller/registerController.php';
+session_start();
+use src\Controller\RegisterController;
+$controller = new RegisterController();
+$datas = $controller->register();
+extract($datas);
+
 require 'inc/header.php';
 ?>
 

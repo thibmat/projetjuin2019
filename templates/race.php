@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 use src\Vehicles\Car;
 use src\Vehicles\Moto;

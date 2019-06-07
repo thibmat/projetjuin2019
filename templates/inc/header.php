@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 if (isset($_GET['exit'])){
     session_unset();
     $urlCourante=$_SERVER["REQUEST_URI"];
@@ -15,12 +15,12 @@ if (isset($_GET['exit'])){
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PAGE PHP</title>
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <body style="background:lightgrey;">
 <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="../index.php">
-        <img src="../../public/img/header-logo-truffaut-2018-1.png" width="241px" height="34px" alt="">
+        <img src="/img/header-logo-truffaut-2018-1.png" width="241px" height="34px" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

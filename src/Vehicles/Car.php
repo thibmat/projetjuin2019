@@ -1,5 +1,6 @@
 <?php
 namespace src\Vehicles;
+
 class Car extends AbstractRollingVehicle
 {
     use Energizer;

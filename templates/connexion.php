@@ -1,9 +1,22 @@
 <?php
-//INCLUSION EN TETE + NAVBAR
-require 'inc/header.php';
+session_start();
+use src\Controller\ConnexionController;
 
-//INCLUSION TRAITEMENT formulaire
-require dirname(__DIR__) . '/src/Controller/connexionController.php';
+require dirname(__DIR__) . '/autoload.php';
+//INCLUSION EN TETE + NAVBAR
+$controller = new ConnexionController();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $datas = $controller->connectUser();
+    extract($datas);
+    var_dump($datas);
+    if ($success == 1) {
+        $_SESSION['username'] = $username;
+        header('location:index.php');
+    }else {
+        echo 'Les informations de connexions ne sont pas valides';
+    }
+}
+require 'inc/header.php';
 ?>
 <main class="text-center container w-25">
     <?php
